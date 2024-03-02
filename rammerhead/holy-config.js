@@ -10,7 +10,7 @@ module.exports = {
     crossDomainPort: null,
     publicDir: null,
 
-    ssl: null,
+    ssl: {key: fs.readFileSync('ssl/default.key'), cert: fs.readFileSync('ssl/default.crt')},
 
     // this function's return object will determine how the client url rewriting will work.
     // set them differently from bindingAddress and port if rammerhead is being served
