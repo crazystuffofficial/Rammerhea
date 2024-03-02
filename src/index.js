@@ -33,7 +33,7 @@ const rammerheadScopes = [
 const rammerheadSession = /^\/[a-z0-9]{32}/;
 
 function shouldRouteRh(req) {
-	const url = new URL(req.url, "http://0.0.0.0");
+	const url = new URL(req.url, "https://0.0.0.0");
 	return (rammerheadScopes.includes(url.pathname) || rammerheadSession.test(url.pathname));
 }
 
