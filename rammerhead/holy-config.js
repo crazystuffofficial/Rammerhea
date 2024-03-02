@@ -1,7 +1,7 @@
 'use strict';
 
 const cookie = require('cookie');
-
+const fs = require('fs');
 module.exports = {
     //// HOSTING CONFIGURATION ////
 
