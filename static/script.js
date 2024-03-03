@@ -171,7 +171,7 @@ window.addEventListener("error", setError);
             editSession(id, httpproxy, enableShuffling);
             const shuffleDict = await api.shuffleDict(id);
             if (!shuffleDict) {
-                window.location.href = "/" + id + "/" + url;
+                window.location.href = "/" + id + "/" + url.replace("://", ":/");
             } else {
                 var shuffler = new StrShuffler(shuffleDict);
                 window.location.href = "/" + id + "/" + shuffler.shuffle(url);
