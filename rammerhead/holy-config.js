@@ -10,7 +10,7 @@ module.exports = {
     crossDomainPort: null,
     publicDir: null,
 
-    ssl: {key: fs.readFileSync('ssl/default.key'), cert: fs.readFileSync('ssl/default.crt')},
+    ssl: null,
 
     // this function's return object will determine how the client url rewriting will work.
     // set them differently from bindingAddress and port if rammerhead is being served
@@ -21,9 +21,9 @@ module.exports = {
         let origin;
 
         try {
-            origin = new URL(origin_proxy);
+            origin = (new URL(origin_proxy)).replace("http://", "https://");
         } catch (error) {
-            origin = new URL(`${req.socket.encrypted ? 'https:' : 'http:'}//${req.headers.host}`);
+            origin = new URL(`https://${req.headers.host}`);
         }
 
         const { hostname, port, protocol } = origin;
